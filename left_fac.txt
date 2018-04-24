@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+
+int main(){
+    int i,j,k;
+    char x,a[30],b[30],c[30];
+    printf("Enter a String:\n");
+    scanf("%s",a);
+        x=a[0];
+        c[0]=a[0];
+        b[0]='X';
+        c[1]=b[1]=a[1];
+        c[2]=b[2]=a[2];
+        c[3]='a';
+        c[4]='X';
+        c[5]='/';
+        for(k=6,j=3,i=3;i<strlen(a);++i){//Assuming expression is of the form A->aX1/aX2/...aXn/B1/B2/.../Bn
+            if(a[i]=='a'){
+                i++;
+                while(a[i]!='/'){
+                    b[j]=a[i];
+                    j++;
+                    i++;
+                    if(a[i]=='/'){
+                    b[j]=a[i];
+                    j++;
+                    }
+                }
+            }
+            else{
+                c[k]=a[i];
+                k++;
+            }
+        }
+        b[--j]='\0';
+        c[k]='\0';
+
+    printf("%s\n",c);
+    printf("%s\n",b);
+return 0;
+}
